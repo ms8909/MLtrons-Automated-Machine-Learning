@@ -1,0 +1,63 @@
+version: '2'
+services:
+### redis
+  the-redis:
+    image: redis:3.2.7-alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - ../data/redis:/data
+    # networks:
+    #   - redis-net
+
+# ### core
+  db:
+    image: postgres:9.6
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_MULTIPLE_DATABASES=mltrons
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+      - ~/backups:/backups
+      - ./postgres:/docker-entrypoint-initdb.d
+    ports:
+      - "5433:5432"
+
+  web:
+    build: ./mltrons_backend
+    env_file: ./env_web
+    entrypoint: ./django_instances.sh
+    volumes:
+      - ./mltrons_backend:/code
+      - /static:/code/static
+    ports:
+      - '8100:8100'
+    depends_on:
+      - db
+      - the-redis
+    tty: true
+
+  react:
+    build: ../react-app
+    command: npm start
+    volumes:
+      - ../react-app:/frontend
+      - /frontend/node_modules
+
+    ports:
+      - "3000:3000"
+
+  celery:
+    build: ./mltrons_backend
+    command: celery -A mlbot_webservices worker -l info
+    volumes:
+      - ./mltrons_backend:/code
+    depends_on:
+      - db
+      - the-redis
+
+volumes:
+  db_data:
+    external: true

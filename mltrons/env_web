@@ -1,0 +1,11 @@
+# Add Environment Variables
+DB_NAME=mlbot
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+
+REDIS_HOST=redis://the-redis
+REDIS_PORT=6379
+
+APP_ENV=local

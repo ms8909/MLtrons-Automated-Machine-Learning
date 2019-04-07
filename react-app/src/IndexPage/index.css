@@ -1,0 +1,110 @@
+.input-container {
+    background-color: #8c8c8c;
+    padding: 3rem;
+}
+
+.medium-centered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column, .columns {
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+}
+
+.group-container {
+    background-color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 100;
+    line-height: 50px;
+    padding: 12px 15px 15px 15px;
+    margin-bottom: .9375rem;
+    margin-top: .9375rem;
+    box-sizing: content-box;
+    border: solid 2px #FFFFFF;
+    /*-webkit-box-shadow: 6px 7px 29px -12px rgba(92,90,92,1);*/
+    /*-moz-box-shadow: 6px 7px 29px -12px rgba(92,90,92,1);*/
+    /*box-shadow: 6px 7px 29px -12px rgba(92,90,92,1);*/
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.group-container:hover {
+    /*-webkit-box-shadow: 6px 7px 29px -12px rgba(92,90,92,1);*/
+    /*-moz-box-shadow: 6px 7px 29px -12px rgba(92,90,92,1);*/
+    /*box-shadow: 6px 7px 29px -12px rgba(92,90,92,1);*/
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.group-container h3{
+    margin: 10px;
+}
+
+.add-btn{
+    height: 75px;
+    width: 75px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    cursor: pointer;
+}
+
+.add-btn .fas{
+    color: #fff;
+    font-size: 30px;
+}
+
+.group-container p{
+    font-size: 15px;
+    margin: 0;
+    line-height: 20px;
+}
+
+.chip{
+    display: inline-block;
+    padding: 10px;
+    background: #fff;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.chip a{
+    margin-left: 5px;
+}
+
+.finder-container{
+    position: relative;
+}
+
+.search-options{
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+}
+.search-options ul{
+    list-style: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.search-options ul li{
+    padding: 5px;
+}
+
+.search-options ul li:hover{
+    background: #ccc;
+}
+
+.display-none{
+    display: none;
+}
+
+.form-container{
+    padding: 20px;
+}
